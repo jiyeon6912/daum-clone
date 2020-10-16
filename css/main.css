@@ -67,7 +67,8 @@ a:hover {
 .top_menu a:nth-child(1) {
   text-indent: 0;
   width: 52px;
-  border: 1px solid var(--gray-mid);
+  height: 24px;
+  border: 1px solid var(--gray-light);
   border-radius: 2px;
   box-sizing: border-box;
   text-align: center;
@@ -195,6 +196,7 @@ nav a {
   height: 70px;
   line-height: 70px;
   /* background: red; */
+  font-weight: 500;
 }
 .nav {
   display: flex;
@@ -210,13 +212,21 @@ nav a {
 .nav a::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  /* top: 0; */
+  bottom: 0;
+  /* left: 0; */
+  left: 15%;
+  right: 15%;
+  /* width: 70%; * 커서가 옮겨졌을때 라인이 보여야 하므로 처음에는 width가 없다.*/
+  width: 0;
   height: 2px;
   background: var(--accent);
+  transition: width 0.3s;
 }
 
+.nav a:hover::after {
+  width: 70%;
+}
 .nav_extra {
   display: flex;
   float: right;
@@ -224,4 +234,30 @@ nav a {
 
 .nav_extra a {
   padding: 0 8px;
+}
+
+.nav_extra li:last-child a {
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+.nav_extra li:last-child a i {
+  font-size: 26px;
+  margin-right: 4px;
+  color: var(--accent);
+}
+
+.nav_extra li:last-child a b {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 3px;
+}
+
+/* footer */
+footer {
+  background: var(--bg-color);
+  padding: 50px 0;
+  border-top: 1px solid var(--gray-light);
 }
